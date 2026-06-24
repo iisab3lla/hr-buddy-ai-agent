@@ -91,7 +91,7 @@ The message is received by the Telegram Trigger in n8n and passed to the AI Agen
   - If the question is about a specific employee, it queries MySQL.
   - If the user has already provided their name, the Simple Memory keeps that context.
   - After generating the answer, n8n sends the response back through Telegram.
-  - 
+    
 In practice, the flow looks like this:
 ```
 Telegram message
@@ -115,27 +115,27 @@ Telegram response
 
 ## Screenshots
 
-  1. Creating the Telegram bot
+  1. Creating the Telegram bot \n
 The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
      //img
 
-  2. Building the workflow in n8n
+  2. Building the workflow in n8n \n
 The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector Store, and Telegram response node.
      //img
 
-  3. Configuring the AI Agent
+  3. Configuring the AI Agent \n
 The AI Agent is responsible for interpreting the user message, deciding which tool to use, and generating the final response.
       //img
 
-  4. Connecting the Vector Store
+  4. Connecting the Vector Store \n
 The Vector Store is used to retrieve relevant HR policy information through semantic search.
      //img
 
-  5. Connecting MySQL
+  5. Connecting MySQL \n
 The MySQL tool allows the agent to retrieve structured employee information, such as vacation balance and work model.
      //img
 
-  6. Testing the bot on Telegram
+  6. Testing the bot on Telegram \n
 After publishing the workflow, the assistant can answer directly inside Telegram.
       //img
 
