@@ -115,11 +115,11 @@ Telegram response
 
 ## Screenshots
 
-# 1. Creating the Telegram bot 
+### 1. Creating the Telegram bot 
 The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
      //img
 
-# 2. Building the workflow in n8n 
+### 2. Building the workflow in n8n 
 The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector Store, and Telegram response node.
      //img
 
