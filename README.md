@@ -69,7 +69,7 @@ flowchart TD
 
 ## Technology stack
 
-## Technology	## Role in the project
+## Technology Role in the project
 
 n8n |	Workflow orchestration and agent automation
 Cohere | Chat model and embedding model
@@ -116,27 +116,27 @@ Telegram response
 ## Screenshots
 
   1. Creating the Telegram bot
-     The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
+The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
      //img
 
   2. Building the workflow in n8n
-     The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector       Store, and Telegram response node.
+The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector Store, and Telegram response node.
      //img
 
   3. Configuring the AI Agent
-     The AI Agent is responsible for interpreting the user message, deciding which tool to use, and            generating the final response.
+The AI Agent is responsible for interpreting the user message, deciding which tool to use, and generating the final response.
       //img
 
   4. Connecting the Vector Store
-     The Vector Store is used to retrieve relevant HR policy information through semantic search.
+The Vector Store is used to retrieve relevant HR policy information through semantic search.
      //img
 
   5. Connecting MySQL
-     The MySQL tool allows the agent to retrieve structured employee information, such as vacation             balance and work model.
+The MySQL tool allows the agent to retrieve structured employee information, such as vacation balance and work model.
      //img
 
   6. Testing the bot on Telegram
-     After publishing the workflow, the assistant can answer directly inside Telegram.
+After publishing the workflow, the assistant can answer directly inside Telegram.
       //img
 
 ---
