@@ -427,23 +427,6 @@ This project helped me practice several concepts related to AI agents, automatio
 - Documenting a technical project for portfolio purposes;
 - Handling credentials carefully before publishing a public repository.
 
----
-
-## Future Improvements
-
-This project is a proof of concept, not a production-ready HR system.
-
-Possible improvements include:
-
-- Add real user authentication;
-- Validate employee identity before returning personal information;
-- Store memory in an external database instead of local memory;
-- Add error handling for unavailable APIs or database failures;
-- Add logs for monitoring and auditability;
-- Improve database modeling;
-- Add human handoff for sensitive HR topics;
-- Create a Docker-based local setup;
-- Add automated tests for expected conversation flows.
 
 ---
 
