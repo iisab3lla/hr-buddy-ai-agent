@@ -1,3 +1,59 @@
+<div align="center">
+
+# HR Buddy
+
+### AI Agent for Human Resources Support
+
+An AI-powered HR assistant that uses n8n, Cohere, MySQL, RAG, and Telegram to answer employee questions through a real chatbot workflow.
+
+</div>
+
+---
+
+<div align="center">
+
+![n8n](https://img.shields.io/badge/n8n-Workflow%20Automation-EA4B71?style=for-the-badge)
+![Cohere](https://img.shields.io/badge/Cohere-LLM%20%26%20Embeddings-39594D?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG-Semantic%20Search-6D28D9?style=for-the-badge)
+
+</div>
+
+---
+
+## Navigation
+
+<table>
+  <tr>
+    <td><a href="#project-overview"><strong>Project Overview</strong></a><br>What HR Buddy is and what problem it solves.</td>
+    <td><a href="#why-this-project-matters"><strong>Why It Matters</strong></a><br>The technical and business value of this project.</td>
+  </tr>
+  <tr>
+    <td><a href="#architecture"><strong>Architecture</strong></a><br>How Telegram, n8n, Cohere, MySQL, and RAG work together.</td>
+    <td><a href="#technology-stack"><strong>Technology Stack</strong></a><br>The tools used and their responsibilities.</td>
+  </tr>
+  <tr>
+    <td><a href="#how-the-flow-works"><strong>Workflow</strong></a><br>How the automation runs step by step.</td>
+    <td><a href="#screenshots"><strong>Screenshots</strong></a><br>Visual documentation of the implementation.</td>
+  </tr>
+  <tr>
+    <td><a href="#example-conversation"><strong>Example Conversation</strong></a><br>A practical interaction with the Telegram bot.</td>
+    <td><a href="#database-structure"><strong>Database</strong></a><br>The MySQL structure used for employee data.</td>
+  </tr>
+  <tr>
+    <td><a href="#exported-n8n-workflow"><strong>Exported Workflow</strong></a><br>The n8n workflow versioned as JSON.</td>
+    <td><a href="#security-notes"><strong>Security Notes</strong></a><br>Credential handling, privacy, and safe publishing.</td>
+  </tr>
+  <tr>
+    <td><a href="#key-learnings"><strong>Key Learnings</strong></a><br>Concepts practiced during the implementation.</td>
+    <td><a href="#future-improvements"><strong>Future Improvements</strong></a><br>Ideas for evolving this proof of concept.</td>
+  </tr>
+</table>
+
+---
+
+
 # HR Buddy - AI Agent for Human Resources
 
 HR Buddy is an AI-powered Human Resources assistant built with n8n, Cohere, MySQL, RAG, and Telegram.
