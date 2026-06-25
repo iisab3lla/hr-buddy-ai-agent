@@ -117,32 +117,49 @@ Telegram response
 
 ### 1. Creating the Telegram bot 
 The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
-     //img
+![Creating the Telegram bot](assets/screenshots/01-botfather-telegram-bot.png)
 
 
 ### 2. Building the workflow in n8n 
 The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector Store, and Telegram response node.
-     //img
+![n8n workflow overview](assets/screenshots/02-n8n-workflow-overview.png)
 
 
 ### 3. Configuring the AI Agent 
+
 The AI Agent is responsible for interpreting the user message, deciding which tool to use, and generating the final response.
-      //img
+![AI Agent configuration](assets/screenshots/03-ai-agent-configuration.png)
 
 
 ### 4. Connecting the Vector Store 
+
 The Vector Store is used to retrieve relevant HR policy information through semantic search.
-     //img
+![Vector Store configuration](assets/screenshots/04-vector-store-configuration.png)
 
 
 ### 5. Connecting MySQL 
+
 The MySQL tool allows the agent to retrieve structured employee information, such as vacation balance and work model.
-     //img
+![MySQL tool configuration](assets/screenshots/05-mysql-tool-configuration.png)
 
 
 ### 6. Testing the bot on Telegram 
+
 After publishing the workflow, the assistant can answer directly inside Telegram.
-      //img
+![Simple Memory session configuration](assets/screenshots/06-simple-memory-session-id.png)
+
+
+### 7. Sending the response back to Telegram
+
+After the AI Agent generates a response, the Telegram node sends the message back to the same chat using the original `chat.id`.
+![Telegram send message configuration](assets/screenshots/07-telegram-send-message.png)
+
+---
+
+### 8. Final Telegram test
+
+The final test shows the assistant identifying the employee, keeping the conversation context, querying MySQL, and returning the vacation balance.
+![Final Telegram test](assets/screenshots/08-telegram-final-test.png)
 
 ---
 
