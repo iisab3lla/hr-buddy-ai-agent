@@ -4,7 +4,9 @@
 
 ### AI Agent for Human Resources Support
 
-An AI-powered HR assistant that uses n8n, Cohere, MySQL, RAG, and Telegram to answer employee questions through a real chatbot workflow.
+An AI-powered HR assistant built with n8n, Cohere, MySQL, RAG, and Telegram.
+
+HR Buddy receives employee questions through Telegram, understands the request, chooses the right data source, and sends back a contextual answer through an automated AI workflow.
 
 </div>
 
@@ -15,6 +17,7 @@ An AI-powered HR assistant that uses n8n, Cohere, MySQL, RAG, and Telegram to an
 ![n8n](https://img.shields.io/badge/n8n-Workflow%20Automation-EA4B71?style=for-the-badge)
 ![Cohere](https://img.shields.io/badge/Cohere-LLM%20%26%20Embeddings-39594D?style=for-the-badge)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-Cloud%20Database-0B0D0E?style=for-the-badge)
 ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
 ![RAG](https://img.shields.io/badge/RAG-Semantic%20Search-6D28D9?style=for-the-badge)
 
@@ -26,84 +29,81 @@ An AI-powered HR assistant that uses n8n, Cohere, MySQL, RAG, and Telegram to an
 
 <table>
   <tr>
-    <td><a href="#project-overview"><strong>Project Overview</strong></a><br>What HR Buddy is and what problem it solves.</td>
-    <td><a href="#why-this-project-matters"><strong>Why It Matters</strong></a><br>The technical and business value of this project.</td>
+    <td><a href="#project-overview"><strong>Project Overview</strong></a><br>What HR Buddy is and what it solves.</td>
+    <td><a href="#why-this-project-matters"><strong>Why This Project Matters</strong></a><br>The business and technical value behind the solution.</td>
   </tr>
   <tr>
     <td><a href="#architecture"><strong>Architecture</strong></a><br>How Telegram, n8n, Cohere, MySQL, and RAG work together.</td>
-    <td><a href="#technology-stack"><strong>Technology Stack</strong></a><br>The tools used and their responsibilities.</td>
+    <td><a href="#technology-stack"><strong>Technology Stack</strong></a><br>The tools used and the role of each one.</td>
   </tr>
   <tr>
-    <td><a href="#how-the-flow-works"><strong>Workflow</strong></a><br>How the automation runs step by step.</td>
+    <td><a href="#how-the-flow-works"><strong>How the Flow Works</strong></a><br>The workflow from user message to final answer.</td>
     <td><a href="#screenshots"><strong>Screenshots</strong></a><br>Visual documentation of the implementation.</td>
   </tr>
   <tr>
     <td><a href="#example-conversation"><strong>Example Conversation</strong></a><br>A practical interaction with the Telegram bot.</td>
-    <td><a href="#database-structure"><strong>Database</strong></a><br>The MySQL structure used for employee data.</td>
+    <td><a href="#database-structure"><strong>Database Structure</strong></a><br>The MySQL table used for employee data.</td>
   </tr>
   <tr>
-    <td><a href="#exported-n8n-workflow"><strong>Exported Workflow</strong></a><br>The n8n workflow versioned as JSON.</td>
-    <td><a href="#security-notes"><strong>Security Notes</strong></a><br>Credential handling, privacy, and safe publishing.</td>
+    <td><a href="#exported-n8n-workflow"><strong>Exported n8n Workflow</strong></a><br>The workflow versioned as a JSON file.</td>
+    <td><a href="#how-to-import-the-workflow"><strong>How to Import</strong></a><br>How to reuse the workflow in another n8n instance.</td>
   </tr>
   <tr>
-    <td><a href="#key-learnings"><strong>Key Learnings</strong></a><br>Concepts practiced during the implementation.</td>
-    <td><a href="#future-improvements"><strong>Future Improvements</strong></a><br>Ideas for evolving this proof of concept.</td>
+    <td><a href="#security-notes"><strong>Security Notes</strong></a><br>Credential handling and safe publishing practices.</td>
+    <td><a href="#key-learnings"><strong>Key Learnings</strong></a><br>Concepts practiced while building the project.</td>
+  </tr>
+  <tr>
+    <td><a href="#future-improvements"><strong>Future Improvements</strong></a><br>What could be improved in a production version.</td>
+    <td><a href="#final-note"><strong>Final Note</strong></a><br>The main takeaway from this project.</td>
   </tr>
 </table>
 
 ---
 
+## Project Overview
 
-# HR Buddy - AI Agent for Human Resources
+HR Buddy is a proof of concept for an AI-powered Human Resources assistant.
 
-HR Buddy is an AI-powered Human Resources assistant built with n8n, Cohere, MySQL, RAG, and Telegram.
+The project was developed during the Oracle + Alura immersion program on AI agents, as part of the hands-on exercises proposed throughout the classes. I organized it as a portfolio project to document not only the final workflow, but also the architecture, the technical decisions, and the concepts practiced during the implementation.
 
-The idea behind this project is simple: instead of asking HR the same operational questions over and over, employees can talk to a Telegram bot that understands the request, checks the right source of information, and responds in natural language.
-
-This project was developed during the Oracle + Alura immersion program on AI agents, as part of the hands-on exercises proposed throughout the classes.
-
-I organized it as a portfolio project to document not only the final workflow, but also the architecture, the technical decisions, and the concepts practiced during the implementation.
-
----
-
-## What this project does
-
-HR Buddy can answer two main types of HR questions:
+The assistant can answer two types of HR questions:
 
 1. General HR policy questions  
-   Example: vacation rules, working hours, internal policies, and general benefits.
+   Examples: vacation rules, work model, internal policies, benefits, and working hours.
 
 2. Employee-specific questions  
-   Example: vacation balance, department, role, work model, and time bank information.
+   Examples: vacation balance, department, role, admission date, and time bank information.
 
-To do this, the agent combines two different knowledge sources:
+To make this possible, the agent combines two different sources of knowledge:
 
 - A Vector Store for semantic search over HR policy documents;
 - A MySQL database for structured employee records.
 
-The agent decides which tool to use based on the user's message.
+The agent receives the message, interprets the user intent, chooses the appropriate tool, and returns an answer through Telegram.
 
 ---
 
-## Why this matters
+## Why This Project Matters
 
-A chatbot that only generates text is useful, but limited.
+A basic chatbot can generate text. An AI agent can go further.
 
-This project explores a more practical architecture: an AI agent connected to real tools, external data, and an automation workflow.
+This project shows how a language model can be connected to tools, data sources, and automation logic to solve a more realistic business problem.
 
-That means the assistant is not just answering from memory. It can:
+Instead of relying only on the model's internal knowledge, HR Buddy can:
 
-- Retrieve information from documents;
-- Query structured data from a database;
-- Keep conversational context;
+- Retrieve relevant information from HR documents;
+- Query structured employee data from MySQL;
+- Keep context during the conversation;
 - Respond through a real communication channel;
-- Be exported, documented, and reused through n8n workflow JSON.
+- Be exported and versioned as an n8n JSON workflow.
 
-For me, this project was important because it helped connect several concepts that are often studied separately: LLMs, RAG, embeddings, databases, APIs, automation, and conversational interfaces.
+The most important part of this project was understanding how different pieces work together: LLMs, embeddings, RAG, databases, APIs, memory, and workflow automation.
 
 ---
 
-## Main architecture
+## Architecture
+
+The project uses n8n as the orchestration layer. Telegram is the user interface, Cohere provides the language and embedding models, MySQL stores employee data, and the Vector Store supports semantic search over HR policies.
 
 ```mermaid
 flowchart TD
@@ -122,48 +122,55 @@ flowchart TD
     J --> A
 ```
 
+---
 
-## Technology stack
+## Technology Stack
 
-## Technology Role in the project
-
-n8n |	Workflow orchestration and agent automation
-Cohere | Chat model and embedding model
-MySQL |	Structured employee data
-Railway |	Cloud database hosting
-Telegram | User interface through a bot
-RAG |	Retrieval-Augmented Generation for HR policies
-Vector Store | Semantic search over internal documents
-JSON | Exported n8n workflow format
+| Technology | Role in the project |
+|---|---|
+| n8n | Workflow orchestration and AI agent automation |
+| Cohere | Chat model and embedding model |
+| MySQL | Structured employee data |
+| Railway | Cloud hosting for the MySQL database |
+| Telegram | User-facing chatbot interface |
+| RAG | Retrieval-Augmented Generation for HR policy answers |
+| Vector Store | Semantic search over internal documents |
+| JSON | Exported n8n workflow format |
 
 ---
 
-## How the flow works
+## How the Flow Works
 
-The workflow starts when a user sends a message to the Telegram bot.
-The message is received by the Telegram Trigger in n8n and passed to the AI Agent. From there, the agent decides what to do:
+The workflow starts when an employee sends a message to the Telegram bot.
 
-  - If the question is about general HR rules, it searches the Vector Store.
-  - If the question is about a specific employee, it queries MySQL.
-  - If the user has already provided their name, the Simple Memory keeps that context.
-  - After generating the answer, n8n sends the response back through Telegram.
-    
-In practice, the flow looks like this:
-```
+The message is received by the Telegram Trigger in n8n and passed to the AI Agent. From there, the agent decides which tool should be used.
+
+- If the question is about general HR policies, the agent searches the Vector Store.
+- If the question is about a specific employee, the agent queries MySQL.
+- If the user has already provided their name, the memory node keeps that context.
+- After generating the answer, n8n sends the response back through Telegram.
+
+In practice, the flow works like this:
+
+```text
 Telegram message
-        ↓
+        |
+        v
 n8n Telegram Trigger
-        ↓
+        |
+        v
 AI Agent
-        ↓
+        |
+        v
 Tool selection
-   ┌────┴────┐
-   ↓         ↓
-Vector    MySQL
-Store     Database
-   ↓         ↓
+   |             |
+   v             v
+Vector Store    MySQL Database
+   |             |
+   v             v
 Generated answer
-        ↓
+        |
+        v
 Telegram response
 ```
 
@@ -171,55 +178,65 @@ Telegram response
 
 ## Screenshots
 
+The screenshots below document the main parts of the implementation, from creating the Telegram bot to testing the final assistant.
 
-### 1. Creating the Telegram bot 
-The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots.
+### 1. Creating the Telegram Bot
+
+The Telegram bot was created using BotFather, the official Telegram tool for creating and managing bots. This step generates the bot identity and the access token used later in n8n as a private credential.
+
 ![Creating the Telegram bot](assets/01-botfather-telegram-bot.png)
 
+---
 
+### 2. Workflow Overview in n8n
 
-### 2. Building the workflow in n8n 
-The main workflow connects the Telegram Trigger, AI Agent, Cohere model, memory, MySQL tool, Vector Store, and Telegram response node.
+This is the final workflow structure. The Telegram Trigger receives the user message, the AI Agent processes it, and the response is sent back through Telegram.
+
 ![n8n workflow overview](assets/02-n8n-workflow-overview.png)
 
+---
 
+### 3. AI Agent Configuration
 
-### 3. Configuring the AI Agent 
+The AI Agent receives the Telegram message text as input and follows a system message that defines its role, language, limits, and tool usage rules.
 
-The AI Agent is responsible for interpreting the user message, deciding which tool to use, and generating the final response.
 ![AI Agent configuration](assets/03-ai-agent-configuration.png)
 
+---
 
+### 4. Vector Store and Embeddings
 
-### 4. Connecting the Vector Store 
+The Vector Store is responsible for storing and retrieving HR policy information. Cohere embeddings are used to represent text semantically, making it possible to search by meaning instead of exact keywords.
 
-The Vector Store is used to retrieve relevant HR policy information through semantic search.
 ![Vector Store configuration](assets/04-vector-store-configuration.png)
 
+---
 
+### 5. MySQL Tool Configuration
 
-### 5. Connecting MySQL 
+The MySQL tool allows the agent to retrieve structured employee data. In this project, it is configured to search the `funcionarios` table using the employee name.
 
-The MySQL tool allows the agent to retrieve structured employee information, such as vacation balance and work model.
 ![MySQL tool configuration](assets/05-mysql-tool-configuration.png)
 
+---
 
+### 6. Conversation Memory
 
-### 6. Testing the bot on Telegram 
+The memory node uses the Telegram `chat.id` as the session identifier. This keeps each conversation isolated and allows the assistant to remember context during the interaction.
 
-After publishing the workflow, the assistant can answer directly inside Telegram.
 ![Simple Memory session configuration](assets/06-simple-memory-session-id.png)
 
+---
 
-
-### 7. Sending the response back to Telegram
+### 7. Sending the Response Back to Telegram
 
 After the AI Agent generates a response, the Telegram node sends the message back to the same chat using the original `chat.id`.
+
 ![Telegram send message configuration](assets/07-telegram-send-message.png)
 
+---
 
-
-### 8. Final Telegram test
+### 8. Final Telegram Test
 
 The final test shows the assistant identifying the employee, keeping the conversation context, querying MySQL, and returning the vacation balance.
 
@@ -227,9 +244,9 @@ The final test shows the assistant identifying the employee, keeping the convers
 
 ---
 
-## Example conversation
+## Example Conversation
 
-```
+```text
 User:
 Hello
 
@@ -248,15 +265,16 @@ I would like to know about my vacation balance.
 HR Buddy:
 According to our records, you have 5 vacation days available.
 ```
+
 This example shows the agent using conversational memory and querying structured data from MySQL.
 
 ---
 
-## Database structure
+## Database Structure
 
-The project uses a MySQL table called funcionarios to store employee information.
+The project uses a MySQL table called `funcionarios` to store employee information.
 
-```
+```sql
 CREATE TABLE funcionarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -271,21 +289,24 @@ CREATE TABLE funcionarios (
 ```
 
 The full database script is available at:
-```
+
+```text
 database/schema.sql
 ```
 
 ---
 
-## Exported n8n workflow
+## Exported n8n Workflow
 
 The n8n workflow was exported as a JSON file and included in this repository.
-```
+
+```text
 workflows/telegram-agent.json
 ```
 
 A simplified example of the exported structure:
-```
+
+```json
 {
   "name": "Aula 3 - HR Buddy",
   "nodes": [
@@ -306,25 +327,26 @@ A simplified example of the exported structure:
 }
 ```
 
-The full workflow JSON is available in the workflows folder.
+The full workflow JSON is available in the `workflows` folder.
 
 ---
 
-## How to import the workflow
+## How to Import the Workflow
 
 To import this workflow into n8n:
 
-  1. Open your n8n instance.
-  2. Go to the workflow editor.
-  3. Click the menu with three dots.
-  4. Select the import option.
-  5. Upload the JSON file from the workflows folder.
-  6. Configure your own credentials.
-  7. Test the workflow.
-  8. Publish or activate it.
+1. Open your n8n instance.
+2. Go to the workflow editor.
+3. Click the menu with three dots.
+4. Select the import option.
+5. Upload the JSON file from the `workflows` folder.
+6. Configure your own credentials.
+7. Test the workflow.
+8. Publish or activate it.
 
 Required credentials:
-```
+
+```text
 Cohere API Key
 Telegram Bot Token
 MySQL host
@@ -336,67 +358,103 @@ MySQL password
 
 ---
 
-## Repository structure
+## Repository Structure
 
-```
+```text
 hr-buddy-ai-agent/
-├── README.md
-├── workflows/
-│   └── telegram-agent.json
-├── database/
-│   └── schema.sql
-├── docs/
-│   ├── introductory-class.md
-│   ├── class-1-rag-embeddings-n8n.md
-│   ├── class-2-mysql-and-memory.md
-│   └── class-3-telegram-automation.md
-├── assets/
-│   └── screenshots/
-│       ├── 01-botfather-telegram-bot.png
-│       ├── 02-n8n-workflow-overview.png
-│       ├── 03-ai-agent-configuration.png
-│       ├── 04-vector-store-configuration.png
-│       ├── 05-mysql-configuration.png
-│       └── 06-telegram-test.png
-├── .env.example
-├── .gitignore
-└── LICENSE
+|-- README.md
+|-- workflows/
+|   |-- telegram-agent.json
+|-- database/
+|   |-- schema.sql
+|-- docs/
+|   |-- introductory-class.md
+|   |-- class-1-rag-embeddings-n8n.md
+|   |-- class-2-mysql-and-memory.md
+|   |-- class-3-telegram-automation.md
+|-- assets/
+|   |-- screenshots/
+|       |-- 01-botfather-telegram-bot.png
+|       |-- 02-n8n-workflow-overview.png
+|       |-- 03-ai-agent-configuration.png
+|       |-- 04-vector-store-configuration.png
+|       |-- 05-mysql-tool-configuration.png
+|       |-- 06-simple-memory-session-id.png
+|       |-- 07-telegram-send-message.png
+|       |-- 08-telegram-final-test.png
+|-- .env.example
+|-- .gitignore
+|-- LICENSE
 ```
 
 ---
 
-## What I learned
+## Security Notes
 
-This project helped me practice and understand several concepts related to AI agents and workflow automation:
+This repository does not include real credentials.
 
- - How to build an AI agent with n8n;
- - How to connect an LLM to external tools;
- - How RAG improves answers by retrieving relevant context;
- - How embeddings are used for semantic search;
- - How a Vector Store supports document-based retrieval;
- - How to connect an AI workflow to a MySQL database;
- - How conversational memory works in a chatbot;
- - How Telegram can be used as a real user interface;
- - How to export and version an n8n workflow as JSON;
- - Why credentials and sensitive data must be protected before publishing a project.
+Before publishing any n8n workflow publicly, it is important to check that the exported JSON does not contain sensitive information.
+
+Do not commit:
+
+- Telegram bot tokens;
+- Cohere API keys;
+- MySQL passwords;
+- Railway connection strings;
+- Authorization headers;
+- Personal or sensitive employee data.
+
+This project uses fictitious employee data and placeholders for credentials.
+
+For a real HR environment, authentication and access control would be mandatory before exposing any employee-specific information.
 
 ---
 
-## Final note
+## Key Learnings
 
-This project started as a learning exercise, but it became a practical example of how AI agents can be connected to real tools and business workflows.
+This project helped me practice several concepts related to AI agents, automation, and applied data integration:
 
-The most valuable part was understanding that an AI agent is not just a chatbot. It is a system that combines reasoning, context, tools, memory, and automation to complete tasks in a more useful way.
+- Building an AI agent with n8n;
+- Connecting an LLM to external tools;
+- Understanding the difference between a chat model and an embedding model;
+- Using RAG to retrieve context from documents;
+- Generating embeddings for semantic search;
+- Using a Vector Store for document-based retrieval;
+- Connecting an AI workflow to a MySQL database;
+- Managing conversational memory with a session identifier;
+- Using Telegram as a real chatbot interface;
+- Exporting and versioning an n8n workflow as JSON;
+- Documenting a technical project for portfolio purposes;
+- Handling credentials carefully before publishing a public repository.
+
+---
+
+## Future Improvements
+
+This project is a proof of concept, not a production-ready HR system.
+
+Possible improvements include:
+
+- Add real user authentication;
+- Validate employee identity before returning personal information;
+- Store memory in an external database instead of local memory;
+- Add error handling for unavailable APIs or database failures;
+- Add logs for monitoring and auditability;
+- Improve database modeling;
+- Add human handoff for sensitive HR topics;
+- Create a Docker-based local setup;
+- Add automated tests for expected conversation flows.
+
+---
+
+## Final Note
+
+This project started as a hands-on exercise during an AI agents immersion program, but it became a practical way to understand how AI systems can be connected to real tools and business workflows.
+
+The main takeaway was that an AI agent is not just a chatbot. It is a system that combines language understanding, context retrieval, structured data, memory, and automation to complete useful tasks.
 
 ---
 
 ## License
 
 This project is licensed under the MIT License.
-
-
-
-
-
-
-
