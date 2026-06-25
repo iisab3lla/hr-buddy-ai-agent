@@ -470,6 +470,17 @@ This project is a proof of concept. Some possible improvements are:
 
 ---
 
+## Additional Documentation
+
+Detailed learning notes and implementation breakdowns are available in the `docs` folder:
+
+- [Introductory Class](docs/introductory-class.md)
+- [Class 1 - RAG, Embeddings and n8n](docs/class-1-rag-embeddings-n8n.md)
+- [Class 2 - MySQL and Memory](docs/class-2-mysql-and-memory.md)
+- [Class 3 - Telegram Automation](docs/class-3-telegram-automation.md)
+
+---
+
 <a id="final-note"></a>
 
 ## Final Note
