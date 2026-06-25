@@ -4,7 +4,7 @@
 
 ### AI Agent for Human Resources Support
 
-An AI-powered HR assistant that connects Telegram, n8n, Cohere, MySQL, and RAG to answer employee questions through a real chatbot workflow.
+An AI-powered HR assistant that connects Telegram, n8n, Cohere, MySQL, and RAG to answer employee questions through a real chatbot workflow. 
 
 </div>
 
