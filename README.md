@@ -427,6 +427,17 @@ This project helped me practice several concepts related to AI agents, automatio
 - Documenting a technical project for portfolio purposes;
 - Handling credentials carefully before publishing a public repository.
 
+---
+
+## Additional Documentation
+
+Detailed learning notes and implementation breakdowns are available in the `docs` folder:
+
+- [Introductory Class](docs/introductory-class.md)
+- [Class 1 - RAG, Embeddings and n8n](docs/class-1-rag-embeddings-n8n.md)
+- [Class 2 - MySQL and Memory](docs/class-2-mysql-and-memory.md)
+- [Class 3 - Telegram Automation](docs/class-3-telegram-automation.md)
+
 
 ---
 
