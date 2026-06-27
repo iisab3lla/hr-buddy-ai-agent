@@ -17,7 +17,7 @@ An AI-powered HR assistant that connects Telegram, n8n, Cohere, MySQL, and RAG t
 ![Telegram](https://img.shields.io/badge/Telegram-Bot%20API-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
 ![RAG](https://img.shields.io/badge/RAG-Semantic%20Search-6D28D9?style=for-the-badge)
 
-</div>
+</div> 
 
 ---
 
